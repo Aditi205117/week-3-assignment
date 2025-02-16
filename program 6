@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int countReversePairs(int arr[], int N) 
+{
+    int count = 0;
+
+    // Check all pairs (i, j) where i < j
+    for (int i = 0; i < N; i++) {
+        for (int j = i + 1; j < N; j++)
+        {
+            if (arr[i] > 2 * arr[j]) 
+            {
+                count++;
+            }
+        }
+    }
+
+    return count;
+}
+
+int main()
+{
+    int N;
+    printf("Enter size of array: ");
+    scanf("%d", &N);
+
+    int arr[N];
+    printf("Enter %d elements: ", N);
+    for (int i = 0; i < N; i++) 
+    {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Reverse Pairs Count: %d\n", countReversePairs(arr, N));
+
+    return 0;
+}
