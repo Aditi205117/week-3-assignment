@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+// Function to calculate factorial
+long long factorial(int num) 
+{
+    long long fact = 1;
+    for (int i = 1; i <= num; i++)
+        fact *= i;
+    return fact;
+}
+
+// Function to count unique paths
+long long countPaths(int m, int n)
+{
+    return factorial(m + n - 2) / (factorial(m - 1) * factorial(n - 1));
+}
+
+int main()
+{
+    int m, n;
+    printf("Enter matrix dimensions (m n): ");
+    scanf("%d %d", &m, &n);
+
+    printf("Total unique paths: %lld\n", countPaths(m, n));
+
+    return 0;
+}
